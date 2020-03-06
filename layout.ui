@@ -16,6 +16,9 @@
   <property name="styleSheet">
    <string notr="true">background-color='#000'</string>
   </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="btn2">
     <property name="geometry">
@@ -264,18 +267,34 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>381</width>
+      <y>30</y>
+      <width>291</width>
       <height>71</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>9</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="font">
      <font>
-      <pointsize>18</pointsize>
+      <pointsize>32</pointsize>
+      <italic>false</italic>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
      <string>0</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="btnErase">

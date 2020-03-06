@@ -15,6 +15,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(316, 473)
         MainWindow.setStyleSheet("background-color=\'#000\'")
+        MainWindow.setDocumentMode(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.btn2 = QtWidgets.QPushButton(self.centralwidget)
@@ -64,10 +65,21 @@ class Ui_MainWindow(object):
         self.btnDivide.setMouseTracking(False)
         self.btnDivide.setObjectName("btnDivide")
         self.labelResult = QtWidgets.QLabel(self.centralwidget)
-        self.labelResult.setGeometry(QtCore.QRect(10, 20, 381, 71))
+        self.labelResult.setGeometry(QtCore.QRect(10, 30, 291, 71))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(9)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.labelResult.sizePolicy().hasHeightForWidth())
+        self.labelResult.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
-        font.setPointSize(18)
+        font.setPointSize(32)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setStrikeOut(False)
+        font.setKerning(True)
         self.labelResult.setFont(font)
+        self.labelResult.setTextFormat(QtCore.Qt.AutoText)
+        self.labelResult.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelResult.setObjectName("labelResult")
         self.btnErase = QtWidgets.QPushButton(self.centralwidget)
         self.btnErase.setGeometry(QtCore.QRect(158, 200, 78, 50))
@@ -123,7 +135,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Calculator"))
         self.btn2.setText(_translate("MainWindow", "2"))
         self.btn2.setShortcut(_translate("MainWindow", "2"))
         self.btn0.setText(_translate("MainWindow", "0"))
@@ -162,7 +174,7 @@ class Ui_MainWindow(object):
         self.btnNegate.setText(_translate("MainWindow", "+/-"))
         self.btnC.setText(_translate("MainWindow", "C"))
         self.btnCE.setText(_translate("MainWindow", "CE"))
-    
+
     def clicked(self, text):
         import re
 
