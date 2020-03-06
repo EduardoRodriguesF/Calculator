@@ -4,4 +4,11 @@
  ### Libraries
  These are the libraries required to run the program
  * PyQt5
+   * This is used to build the GUI
+   * UI was designed using the PyQt Designer tool
  * Regex
+   * Regular Expressions was used to separate number every operator and put it in a list by code bellow:
+   ```python
+   numbers = re.split(r'[- + * /]', numbers)
+   ```
+
