@@ -300,8 +300,8 @@
    <widget class="QPushButton" name="btnErase">
     <property name="geometry">
      <rect>
-      <x>158</x>
-      <y>200</y>
+      <x>236</x>
+      <y>150</y>
       <width>78</width>
       <height>50</height>
      </rect>
@@ -348,8 +348,8 @@
    <widget class="QPushButton" name="btnC">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>200</y>
+      <x>158</x>
+      <y>150</y>
       <width>78</width>
       <height>50</height>
      </rect>
@@ -364,6 +364,70 @@
    <widget class="QPushButton" name="btnCE">
     <property name="geometry">
      <rect>
+      <x>80</x>
+      <y>150</y>
+      <width>78</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>CE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnRoot">
+    <property name="geometry">
+     <rect>
+      <x>158</x>
+      <y>200</y>
+      <width>78</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>√x</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSqr">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>200</y>
+      <width>78</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>x²</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnPercent">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>150</y>
+      <width>78</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>%</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnInvert">
+    <property name="geometry">
+     <rect>
       <x>2</x>
       <y>200</y>
       <width>78</width>
@@ -374,7 +438,7 @@
      <bool>false</bool>
     </property>
     <property name="text">
-     <string>CE</string>
+     <string>1/x</string>
     </property>
    </widget>
   </widget>

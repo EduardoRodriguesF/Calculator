@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
         self.labelResult.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelResult.setObjectName("labelResult")
         self.btnErase = QtWidgets.QPushButton(self.centralwidget)
-        self.btnErase.setGeometry(QtCore.QRect(158, 200, 78, 50))
+        self.btnErase.setGeometry(QtCore.QRect(236, 150, 78, 50))
         self.btnErase.setMouseTracking(False)
         self.btnErase.setObjectName("btnErase")
         self.btnDot = QtWidgets.QPushButton(self.centralwidget)
@@ -92,13 +92,29 @@ class Ui_MainWindow(object):
         self.btnNegate.setGeometry(QtCore.QRect(2, 400, 78, 50))
         self.btnNegate.setObjectName("btnNegate")
         self.btnC = QtWidgets.QPushButton(self.centralwidget)
-        self.btnC.setGeometry(QtCore.QRect(80, 200, 78, 50))
+        self.btnC.setGeometry(QtCore.QRect(158, 150, 78, 50))
         self.btnC.setMouseTracking(False)
         self.btnC.setObjectName("btnC")
         self.btnCE = QtWidgets.QPushButton(self.centralwidget)
-        self.btnCE.setGeometry(QtCore.QRect(2, 200, 78, 50))
+        self.btnCE.setGeometry(QtCore.QRect(80, 150, 78, 50))
         self.btnCE.setMouseTracking(False)
         self.btnCE.setObjectName("btnCE")
+        self.btnRoot = QtWidgets.QPushButton(self.centralwidget)
+        self.btnRoot.setGeometry(QtCore.QRect(158, 200, 78, 50))
+        self.btnRoot.setMouseTracking(False)
+        self.btnRoot.setObjectName("btnRoot")
+        self.btnSqr = QtWidgets.QPushButton(self.centralwidget)
+        self.btnSqr.setGeometry(QtCore.QRect(80, 200, 78, 50))
+        self.btnSqr.setMouseTracking(False)
+        self.btnSqr.setObjectName("btnSqr")
+        self.btnPercent = QtWidgets.QPushButton(self.centralwidget)
+        self.btnPercent.setGeometry(QtCore.QRect(2, 150, 78, 50))
+        self.btnPercent.setMouseTracking(False)
+        self.btnPercent.setObjectName("btnPercent")
+        self.btnInvert = QtWidgets.QPushButton(self.centralwidget)
+        self.btnInvert.setGeometry(QtCore.QRect(2, 200, 78, 50))
+        self.btnInvert.setMouseTracking(False)
+        self.btnInvert.setObjectName("btnInvert")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 316, 21))
@@ -108,7 +124,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        # Set up buttons to execute function
+                # Set up buttons to execute function
         self.btn0.clicked.connect(lambda: self.clicked(self.btn0.text()))
         self.btn1.clicked.connect(lambda: self.clicked(self.btn1.text()))
         self.btn2.clicked.connect(lambda: self.clicked(self.btn2.text()))
@@ -130,12 +146,16 @@ class Ui_MainWindow(object):
         self.btnDot.clicked.connect(lambda: self.clicked(self.btnDot.text()))
         self.btnC.clicked.connect(lambda: self.clicked(self.btnC.text()))
         self.btnCE.clicked.connect(lambda: self.clicked(self.btnCE.text()))
+        self.btnPercent.clicked.connect(lambda: self.clicked(self.btnPercent.text()))
+        self.btnSqr.clicked.connect(lambda: self.clicked(self.btnSqr.text()))
+        self.btnRoot.clicked.connect(lambda: self.clicked(self.btnRoot.text()))
+        self.btnInvert.clicked.connect(lambda: self.clicked(self.btnInvert.text()))
                 
         self.btnResult.clicked.connect(lambda: self.clicked(self.btnResult.text()))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Calculator"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.btn2.setText(_translate("MainWindow", "2"))
         self.btn2.setShortcut(_translate("MainWindow", "2"))
         self.btn0.setText(_translate("MainWindow", "0"))
@@ -174,15 +194,22 @@ class Ui_MainWindow(object):
         self.btnNegate.setText(_translate("MainWindow", "+/-"))
         self.btnC.setText(_translate("MainWindow", "C"))
         self.btnCE.setText(_translate("MainWindow", "CE"))
+        self.btnRoot.setText(_translate("MainWindow", "√x"))
+        self.btnSqr.setText(_translate("MainWindow", "x²"))
+        self.btnPercent.setText(_translate("MainWindow", "%"))
+        self.btnInvert.setText(_translate("MainWindow", "1/x"))
 
     def clicked(self, text):
         import re
+        from math import sqrt
 
         count = self.labelResult.text()
         numbers = count
         numbers = re.split(r'[- + * /]', numbers) # Create a list of numbers separating by operators
         n = numbers[len(numbers)-1] # Number of numbers 
-        others = ['=', '+/-', '<-', '.', 'C', 'CE'] # Characters that can't be directly inserted in count
+        others = ['=', '+/-', '<-', '.', 'C', 'CE', '√x', '1/x', 'x²', '%'] # Characters that can't be directly inserted in count
+        #ops = ['+', '-', '*', '/']
+        #nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
         
         if text not in others: # In case the program only needs to add character at the end of our count
             count = count+str(text)
@@ -190,7 +217,8 @@ class Ui_MainWindow(object):
                 count = count[1:]
         else:            
             if text == '=':
-                count = str(eval(count)) # Count the value on string
+                count = count.replace('√', 'sqrt')
+                count = str(round(eval(count), 5)) # Count the value on string
                 
             elif text == '<-':
                 count = count[:-1] # Erase last number
@@ -211,9 +239,17 @@ class Ui_MainWindow(object):
                         count = count+str(text)
             
             elif text == 'C':
-                count = '0'
+                count = '0' # Erase everything
+
             elif text == 'CE':
-                count = count.replace(n, '0')
+                count = count.replace(n, '0') # Erase latest number
+
+            elif text == '√x':
+                if n == '':
+                    count = count+'√(0)'
+                else:
+                    index = count.find(n) 
+                    count = count[:index] + '√(' + count[index:] + ')' # Put latest number in between  '√()' so the program process it to make the sqrt()
 
         self.labelResult.setText(count) # Show count
 
