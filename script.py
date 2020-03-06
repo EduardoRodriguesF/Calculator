@@ -155,7 +155,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Calculator"))
         self.btn2.setText(_translate("MainWindow", "2"))
         self.btn2.setShortcut(_translate("MainWindow", "2"))
         self.btn0.setText(_translate("MainWindow", "0"))
@@ -198,10 +198,13 @@ class Ui_MainWindow(object):
         self.btnSqr.setText(_translate("MainWindow", "x²"))
         self.btnPercent.setText(_translate("MainWindow", "%"))
         self.btnInvert.setText(_translate("MainWindow", "1/x"))
-
+    
     def clicked(self, text):
         import re
         from math import sqrt
+
+        def sqr(x):
+            return x**2
 
         count = self.labelResult.text()
         numbers = count
@@ -212,9 +215,17 @@ class Ui_MainWindow(object):
         #nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
         
         if text not in others: # In case the program only needs to add character at the end of our count
-            count = count+str(text)
-            if count[0] == '0' and len(count) > 1: # Remove left zeros
-                count = count[1:]
+            if count[len(count)-1] == ')':
+                index = count.find(n)
+                count = count[:index] + text
+            else:
+                count = count+str(text)
+                
+            count = str(count)
+            #print(n)
+            if n != '':
+                if n[0] == '0': # Remove left zeros
+                    count = count.replace(n, n[1:])
         else:            
             if text == '=':
                 count = count.replace('√', 'sqrt')
@@ -251,7 +262,27 @@ class Ui_MainWindow(object):
                     index = count.find(n) 
                     count = count[:index] + '√(' + count[index:] + ')' # Put latest number in between  '√()' so the program process it to make the sqrt()
 
-        self.labelResult.setText(count) # Show count
+            elif text == 'x²':
+                if n == '':
+                    count = count+'√(0)'
+                else:
+                    index = count.find(n) 
+                    count = count[:index] + 'sqr(' + count[index:] + ')' # Put latest number in between  'sqr()'
+            
+            #elif text == '%':
+            #    index = count.find(n[len(n)-2])
+            #    if '.' in n:
+            #        index = count.find(n[len(n)-2])
+            #        print(index)
+            #    else:
+            #        count = count[:index] + '.' + count[index:]
+
+            elif text == '1/x':
+                if n != '0' and n != '':
+                    index = count.find(n) # Get latest number
+                    count = count[:index] + '(1/' + count[index:] + ')' # Put number in between (1/number)
+
+        self.labelResult.setText(str(count)) # Show count
 
 if __name__ == "__main__":
     import sys
