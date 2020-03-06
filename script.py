@@ -9,56 +9,59 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        # Set Up UI
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(400, 500)
+        MainWindow.resize(316, 475)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.btn2 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn2.setGeometry(QtCore.QRect(100, 310, 100, 70))
+        self.btn2.setGeometry(QtCore.QRect(80, 330, 78, 50))
         self.btn2.setObjectName("btn2")
         self.btn0 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn0.setGeometry(QtCore.QRect(100, 380, 100, 70))
+        self.btn0.setGeometry(QtCore.QRect(80, 380, 78, 50))
         self.btn0.setObjectName("btn0")
         self.btn3 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn3.setGeometry(QtCore.QRect(200, 310, 100, 70))
+        self.btn3.setGeometry(QtCore.QRect(158, 330, 78, 50))
         self.btn3.setObjectName("btn3")
         self.btn1 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn1.setGeometry(QtCore.QRect(0, 310, 100, 70))
+        self.btn1.setGeometry(QtCore.QRect(2, 330, 78, 50))
         self.btn1.setObjectName("btn1")
         self.btn5 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn5.setGeometry(QtCore.QRect(100, 240, 100, 70))
+        self.btn5.setGeometry(QtCore.QRect(80, 280, 78, 50))
         self.btn5.setObjectName("btn5")
         self.btn4 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn4.setGeometry(QtCore.QRect(0, 240, 100, 70))
+        self.btn4.setGeometry(QtCore.QRect(2, 280, 78, 50))
         self.btn4.setObjectName("btn4")
         self.btn6 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn6.setGeometry(QtCore.QRect(200, 240, 100, 70))
+        self.btn6.setGeometry(QtCore.QRect(158, 280, 78, 50))
         self.btn6.setObjectName("btn6")
         self.btn9 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn9.setGeometry(QtCore.QRect(200, 170, 100, 70))
+        self.btn9.setGeometry(QtCore.QRect(158, 230, 78, 50))
         self.btn9.setObjectName("btn9")
         self.btn8 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn8.setGeometry(QtCore.QRect(100, 170, 100, 70))
+        self.btn8.setGeometry(QtCore.QRect(80, 230, 78, 50))
         self.btn8.setObjectName("btn8")
         self.btn7 = QtWidgets.QPushButton(self.centralwidget)
-        self.btn7.setGeometry(QtCore.QRect(0, 170, 100, 70))
+        self.btn7.setGeometry(QtCore.QRect(2, 230, 78, 50))
         self.btn7.setObjectName("btn7")
         self.btnResult = QtWidgets.QPushButton(self.centralwidget)
-        self.btnResult.setGeometry(QtCore.QRect(300, 380, 100, 70))
+        self.btnResult.setGeometry(QtCore.QRect(236, 380, 78, 50))
         self.btnResult.setObjectName("btnResult")
         self.btnMinus = QtWidgets.QPushButton(self.centralwidget)
-        self.btnMinus.setGeometry(QtCore.QRect(300, 240, 100, 70))
+        self.btnMinus.setGeometry(QtCore.QRect(236, 280, 78, 50))
         self.btnMinus.setObjectName("btnMinus")
         self.btnMultiple = QtWidgets.QPushButton(self.centralwidget)
-        self.btnMultiple.setGeometry(QtCore.QRect(300, 170, 100, 70))
+        self.btnMultiple.setGeometry(QtCore.QRect(236, 230, 78, 50))
         self.btnMultiple.setObjectName("btnMultiple")
         self.btnPlus = QtWidgets.QPushButton(self.centralwidget)
-        self.btnPlus.setGeometry(QtCore.QRect(300, 310, 100, 70))
+        self.btnPlus.setGeometry(QtCore.QRect(236, 330, 78, 50))
         self.btnPlus.setObjectName("btnPlus")
         self.btnDivide = QtWidgets.QPushButton(self.centralwidget)
-        self.btnDivide.setGeometry(QtCore.QRect(300, 100, 100, 70))
+        self.btnDivide.setGeometry(QtCore.QRect(236, 180, 78, 50))
+        self.btnDivide.setMouseTracking(False)
         self.btnDivide.setObjectName("btnDivide")
         self.labelResult = QtWidgets.QLabel(self.centralwidget)
         self.labelResult.setGeometry(QtCore.QRect(10, 20, 381, 71))
@@ -66,9 +69,19 @@ class Ui_MainWindow(object):
         font.setPointSize(18)
         self.labelResult.setFont(font)
         self.labelResult.setObjectName("labelResult")
+        self.btnErase = QtWidgets.QPushButton(self.centralwidget)
+        self.btnErase.setGeometry(QtCore.QRect(236, 130, 78, 50))
+        self.btnErase.setMouseTracking(False)
+        self.btnErase.setObjectName("btnErase")
+        self.btnDot = QtWidgets.QPushButton(self.centralwidget)
+        self.btnDot.setGeometry(QtCore.QRect(158, 380, 78, 50))
+        self.btnDot.setObjectName("btnDot")
+        self.btnNegate = QtWidgets.QPushButton(self.centralwidget)
+        self.btnNegate.setGeometry(QtCore.QRect(2, 380, 78, 50))
+        self.btnNegate.setObjectName("btnNegate")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 316, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -78,6 +91,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # Set up buttons to execute function
         self.btn0.clicked.connect(lambda: self.clicked(self.btn0.text()))
         self.btn1.clicked.connect(lambda: self.clicked(self.btn1.text()))
         self.btn2.clicked.connect(lambda: self.clicked(self.btn2.text()))
@@ -88,12 +102,16 @@ class Ui_MainWindow(object):
         self.btn7.clicked.connect(lambda: self.clicked(self.btn7.text()))
         self.btn8.clicked.connect(lambda: self.clicked(self.btn8.text()))
         self.btn9.clicked.connect(lambda: self.clicked(self.btn9.text()))
-        
+                
         self.btnPlus.clicked.connect(lambda: self.clicked(self.btnPlus.text()))
         self.btnMinus.clicked.connect(lambda: self.clicked(self.btnMinus.text()))
         self.btnMultiple.clicked.connect(lambda: self.clicked(self.btnMultiple.text()))
         self.btnDivide.clicked.connect(lambda: self.clicked(self.btnDivide.text()))
 
+        self.btnErase.clicked.connect(lambda: self.clicked(self.btnErase.text()))
+        self.btnNegate.clicked.connect(lambda: self.clicked(self.btnNegate.text()))
+        self.btnDot.clicked.connect(lambda: self.clicked(self.btnDot.text()))
+        
         self.btnResult.clicked.connect(lambda: self.clicked(self.btnResult.text()))
 
     def retranslateUi(self, MainWindow):
@@ -129,20 +147,52 @@ class Ui_MainWindow(object):
         self.btnPlus.setShortcut(_translate("MainWindow", "+"))
         self.btnDivide.setText(_translate("MainWindow", "/"))
         self.btnDivide.setShortcut(_translate("MainWindow", "/"))
+        self.labelResult.setText(_translate("MainWindow", "0"))
+        self.btnErase.setText(_translate("MainWindow", "<-"))
+        self.btnErase.setShortcut(_translate("MainWindow", "Backspace"))
+        self.btnDot.setText(_translate("MainWindow", "."))
+        self.btnDot.setShortcut(_translate("MainWindow", ",, ."))
+        self.btnNegate.setText(_translate("MainWindow", "+/-"))
+        #self.btnNegate.setShortcut(_translate("MainWindow", ""))
 
     def clicked(self, text):
-        count = self.labelResult.text()+str(text)
+        import re
 
-        if count[0] == '0' and len(count) > 1:
-            count = count[1:]
+        count = self.labelResult.text()
+        numbers = count
+        numbers = re.split(r'[- + * /]', numbers) # Create a list of numbers separating by operators
+        n = numbers[len(numbers)-1] # Number of numbers 
+        others = ['=', '+/-', '<-', '.'] # Characters that can't be directly inserted in count
 
-        if text == '=':
-            count = str(eval(count[:-1]))
-            
-        self.labelResult.setText(count)
+        if text not in others: # In case the program only needs to add character at the end of our count
+            count = count+str(text)
+            if count[0] == '0' and len(count) > 1: # Remove left zeros
+                count = count[1:]
+
+        else:            
+            if text == '=':
+                count = str(eval(count)) # Count the value on string
+            elif text == '<-':
+                count = count[:-1] # Erase last number
+                if count == '':
+                    count = '0' # Makes sure the display don't show nothing
+            elif text == '+/-':
+                if count[0] != '-': # Add Minus if it doesn't have
+                    count = '-'+count 
+                else:  # Remove Minus if it's there
+                    count = count[1:]
+            elif text == '.': 
+                if '.' not in n: # Allow to insert "." if there isn't any in that number 
+                    if n == '': 
+                        count = count+'0.' # If there is no number after operator, put "0."
+                    else:
+                        count = count+str(text)
+   
+        self.labelResult.setText(count) # Show count
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
