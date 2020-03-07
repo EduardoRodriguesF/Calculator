@@ -17,4 +17,9 @@
   ```python
   numbers = re.split(r'[- + * /]', numbers)
   ```
+ #### Math
+   This library was needed to make the square root function
+   ```python
+   math.sqrt(x)
+   ```
 
