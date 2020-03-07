@@ -1,7 +1,7 @@
 # Calculator
  That is a simple calculator made with Python 3.8
  
- ## What I have learned with the project?
+ ## What have I learned with the project?
  #### GUI Design
  While using the PyQt5 Designer tool, I was able to learn about the software's workplace and how to use it in code to display whatever I want.
  #### Counting, separating and controlling strings
