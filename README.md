@@ -21,8 +21,6 @@ Once you press `=` the program uses `eval()`
   * Math
   For that, you just need to use the commands bellow in your Command prompt:
   ```
-  > pip install pyqt5
-  > pip install regex
-  > pip install math
+  > pip install pyqt5 regex math
   ```
 Now you should be able to use it by running `script.py`
