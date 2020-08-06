@@ -1,5 +1,5 @@
 # Calculator
- That is a simple calculator made with Python 3.8
+ That is a Python calculator made with Python 3.8
  
  ## What have I learned with the project?
  #### GUI Design
