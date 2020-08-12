@@ -1,5 +1,5 @@
 # Calculator
- That is a Python calculator made with Python 3.8
+ A calculator made with Python 3.8
  
  ## What have I learned with the project?
  #### GUI Design
@@ -12,7 +12,7 @@ count = count[:index] + 'sqr(' + count[index:] + ')'
 # 'index' represents those numbers 
 ```
 
-Once you press `=` the program uses `eval()`
+Once you press `=` the program uses `eval()` to calculate the string
  
  ## Setting up
   Assuming you already have Python and `pip` installed, to run the program you will need to get the following packages:
